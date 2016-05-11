@@ -79,7 +79,7 @@ HackerNewsRanking.configure do
   timestamp :commented_at
   gravity 2.3
   scope_method :controversial
-  points_method :points
+  current_rank_method :points
 end
 ```
 
