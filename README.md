@@ -107,10 +107,14 @@ HackerNewsRanking.rank(
 )
 ```
 
+The `rank` method will return a new instance of an `Array`. While `rank!` will
+modify the passed object.
+
 ## Contributing
 
-Contributions are much welcome!
-
-Please feel free to fork this project and to make pull requests.
+Please feel free to fork this project and to make pull requests. Support for
+more ORMs, features and bugfixes are always welcome.
 
 ## License
+
+`TODO`
