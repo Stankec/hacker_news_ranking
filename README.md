@@ -25,17 +25,18 @@ A minimal configuration would look like this:
 
 ```Ruby
 class Post < ActiveRecord::Base
-  include HackerNewsRanking.new(:favorites_count)
+  include HackerNewsRanking.new(points: :favorites_count)
 end
 ```
 
 ```Ruby
 class Post < ActiveRecord::Base
   include HackerNewsRanking.new(
-    -> { comments_count + favorites_count },
+    points: sql { comments_count + favorites_count },
     timestamp: :created_at,
+    gravity: 1.8,
     scope_method: :trending,
-    points_method: :rank
+    current_rank_method: :rank
   )
 end
 ```
@@ -43,6 +44,7 @@ end
 ```Ruby
 HackerNewsRanking.configure do
   timestamp :updated_at
+  gravity: 1.8
   scope_method :hottest
   points_method :points
 end
