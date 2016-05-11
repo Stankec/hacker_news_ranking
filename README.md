@@ -1,6 +1,6 @@
 # Hacker News Ranking
 
-Add a roubust ranking system that deteriates over time to your application.
+Add a robust ranking system that deteriorates over time to your application.
 This system is used by sites the like of Reddit and Hacker News to rank their
 posts by 'hottest' or 'trending'.
 
@@ -12,13 +12,13 @@ The Hacker News 'algorithm' scores each entry using the following formula:
 rank = (points - 1) / [(time + 2)^gravity]
 ```
 
-The `points` field defines which value, or combination of values, will generate
-the base rank. The difference between now and the time the entry was created is
-expressed in the `time` field (in hours). The `gravity` field determines how
-much the passage of time plays a role. The higher the gravity, the more an
-entries ranking deteriates over time.
+The `points` field defines which value, or a combination of values, will
+generate the base rank. The difference between now and the time the entry was
+created is expressed in the `time` field (in hours). The `gravity` field
+determines how much the passage of time plays a role. The higher the gravity,
+the more an entries ranking deteriorates over time.
 
-Here is a graph rendering the deteriation of an entrie's rank oer time:
+Here is a graph rendering the deterioration of an entries rank over time:
 
 ![Graph rendering of rank change over time](/docs/deteriation_graph.png)
 
@@ -113,7 +113,7 @@ modify the passed object.
 ## Contributing
 
 Please feel free to fork this project and to make pull requests. Support for
-more ORMs, features and bugfixes are always welcome.
+more ORMs, features and bug fixes are always welcome.
 
 ## License
 
