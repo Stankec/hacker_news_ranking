@@ -40,6 +40,10 @@ describe HackerNewsRanking do
         )
       end
     end
+
+    describe '#rank' do
+
+    end
   end
 
   context 'instance method' do

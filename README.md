@@ -105,8 +105,22 @@ Any array can be ranked using the `rank` and `rank!` class methods.
 ```Ruby
 HackerNewsRanking.rank(
   array: [1, 2, 3, 4],
-  points: &:to_i,
-  timestamp: -> { Time.now }
+  points: :to_i,
+  timestamp: proc { Time.now.to_i }
+)
+```
+
+Arrays can also _include_ with the `rank` and `rank!` methods by doing the
+following:
+
+```Ruby
+Array.include(HackerNewsRanking::ArrayMethods)
+
+array = [1, 2, 3, 4]
+array.rank!(
+  points: :to_i,
+  timestamp: -> (number) { Time.now.to_i / number },
+  gravity: 0.7
 )
 ```
 
