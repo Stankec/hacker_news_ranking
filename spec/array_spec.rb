@@ -7,18 +7,6 @@ describe HackerNewsRanking::ArrayMethods do
     array
   end
 
-  shared_examples 'it sorts the array' do sorted_array
-    it 'sorts the array' do
-      expect(sorted_array).to(
-        eq(
-          [
-
-          ]
-        )
-      )
-    end
-  end
-
   it 'defines #rank' do
     expect(array.methods).to include(:rank)
   end
@@ -28,8 +16,38 @@ describe HackerNewsRanking::ArrayMethods do
   end
 
   describe '#rank' do
+    let(:sorted_array) do
+      array.rank(
+        points: :to_f,
+        timestamp: -> (number) { 4 - number },
+        gravity: 5
+      )
+    end
+
+    it 'sorts the array' do
+      expect(sorted_array).to eq([4, 3, 2, 1])
+    end
+
+    it 'returns a different array from the one passed to it' do
+      expect(sorted_array).not_to be(array)
+    end
   end
 
   describe '#rank!' do
+    let(:sorted_array) do
+      array.rank!(
+        points: :to_f,
+        timestamp: -> (number) { 4 - number },
+        gravity: 5
+      )
+    end
+
+    it 'sorts the array' do
+      expect(sorted_array).to eq([4, 3, 2, 1])
+    end
+
+    it 'returns the same array as the one passed to it' do
+      expect(sorted_array).to be(array)
+    end
   end
 end

@@ -119,7 +119,7 @@ Array.include(HackerNewsRanking::ArrayMethods)
 array = [1, 2, 3, 4]
 array.rank!(
   points: :to_i,
-  timestamp: -> (number) { Time.now.to_i / number },
+  timestamp: -> (number) { Time.now.hours / number },
   gravity: 0.7
 )
 ```

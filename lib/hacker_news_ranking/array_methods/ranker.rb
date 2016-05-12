@@ -7,8 +7,6 @@ class HackerNewsRanking
       attr_reader :gravity
 
       def initialize(array, points: nil, timestamp: nil, gravity: nil)
-        array.is_a?(Array) || raise(TypeError, 'expected object of type Array')
-
         @array = array
         @points = points || configuration[:points]
         @timestamp = timestamp || configuration[:timestamp]
@@ -16,11 +14,11 @@ class HackerNewsRanking
       end
 
       def rank
-        array.sort_by(formula)
+        array.sort_by(&formula)
       end
 
       def rank!
-        array.sort_by!(formula)
+        array.sort_by!(&formula)
       end
 
       private
@@ -43,6 +41,10 @@ class HackerNewsRanking
 
       def timestamp
         @timestamp.to_proc
+      end
+
+      def gravity
+        @gravity.to_f
       end
     end
   end
