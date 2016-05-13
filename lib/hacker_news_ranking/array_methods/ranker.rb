@@ -21,6 +21,18 @@ class HackerNewsRanking
         array.sort_by!(&formula).reverse!
       end
 
+      def points
+        @points.to_proc
+      end
+
+      def timestamp
+        @timestamp.to_proc
+      end
+
+      def gravity
+        @gravity.to_f
+      end
+
       private
 
       attr_reader :formula
@@ -33,18 +45,6 @@ class HackerNewsRanking
         @formula ||= proc do |element|
           points.call(element) / timestamp.call(element)**gravity
         end
-      end
-
-      def points
-        @points.to_proc
-      end
-
-      def timestamp
-        @timestamp.to_proc
-      end
-
-      def gravity
-        @gravity.to_f
       end
     end
   end

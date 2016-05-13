@@ -15,6 +15,17 @@ describe HackerNewsRanking::ArrayMethods do
     expect(array.methods).to include(:rank!)
   end
 
+  it 'uses the global configuration if no arguments passed' do
+    ranker = HackerNewsRanking::ArrayMethods::Ranker.new(array, points: :itself)
+
+    expect(ranker.timestamp).to(
+      eq(HackerNewsRanking::Configuration.configuration[:timestamp].to_proc)
+    )
+    expect(ranker.gravity).to(
+      eq(HackerNewsRanking::Configuration.configuration[:gravity].to_f)
+    )
+  end
+
   describe '#rank' do
     let(:sorted_array) do
       array.rank(

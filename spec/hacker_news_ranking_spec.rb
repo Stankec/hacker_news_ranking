@@ -41,8 +41,46 @@ describe HackerNewsRanking do
       end
     end
 
-    describe '#rank' do
+    context 'ranking methods' do
+      let(:array) { (1..4).to_a }
 
+      describe '#rank' do
+        let(:sorted_array) do
+          HackerNewsRanking.rank(
+            array: array,
+            points: proc { 100 },
+            timestamp: -> (number) { 5 - number },
+            gravity: 5
+          )
+        end
+
+        it 'sorts the array' do
+          expect(sorted_array).to eq([4, 3, 2, 1])
+        end
+
+        it 'returns a different array from the one passed to it' do
+          expect(sorted_array).not_to be(array)
+        end
+      end
+
+      describe '#rank!' do
+        let(:sorted_array) do
+          HackerNewsRanking.rank!(
+            array: array,
+            points: proc { 100 },
+            timestamp: -> (number) { 5 - number },
+            gravity: 5
+          )
+        end
+
+        it 'sorts the array' do
+          expect(sorted_array).to eq([4, 3, 2, 1])
+        end
+
+        it 'returns the same array as the one passed to it' do
+          expect(sorted_array).to be(array)
+        end
+      end
     end
   end
 
