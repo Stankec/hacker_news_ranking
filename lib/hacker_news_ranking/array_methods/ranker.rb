@@ -5,20 +5,21 @@ class HackerNewsRanking
       attr_reader :points
       attr_reader :timestamp
       attr_reader :gravity
+      attr_reader :inplace
 
-      def initialize(array, points: nil, timestamp: nil, gravity: nil)
+      def initialize(
+        array, points: nil, timestamp: nil, gravity: nil, inplace: false
+      )
         @array = array
         @points = points || configuration[:points]
         @timestamp = timestamp || configuration[:timestamp]
         @gravity = gravity || configuration[:gravity]
+        @inplace = inplace
       end
 
-      def rank
-        array.sort_by(&formula).reverse!
-      end
-
-      def rank!
-        array.sort_by!(&formula).reverse!
+      def call
+        return rank! if inplace
+        rank
       end
 
       def points
@@ -39,6 +40,14 @@ class HackerNewsRanking
 
       def configuration
         HackerNewsRanking::Configuration.configuration
+      end
+
+      def rank
+        array.sort_by(&formula).reverse!
+      end
+
+      def rank!
+        array.sort_by!(&formula).reverse!
       end
 
       def formula

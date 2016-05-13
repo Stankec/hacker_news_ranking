@@ -11,13 +11,16 @@ class HackerNewsRanking
   def self.rank(array:, points: nil, timestamp: nil, gravity: nil)
     ArrayMethods::Ranker
       .new(array, points: points, timestamp: timestamp, gravity: gravity)
-      .rank
+      .call
   end
 
   def self.rank!(array:, points: nil, timestamp: nil, gravity: nil)
     ArrayMethods::Ranker
-      .new(array, points: points, timestamp: timestamp, gravity: gravity)
-      .rank!
+      .new(
+        array, points: points, timestamp: timestamp, gravity: gravity,
+        inplace: true
+      )
+      .call
   end
 
   def initialize(options = {})
