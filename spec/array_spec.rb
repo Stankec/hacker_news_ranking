@@ -18,7 +18,7 @@ describe HackerNewsRanking::ArrayMethods do
   describe '#rank' do
     let(:sorted_array) do
       array.rank(
-        points: :to_f,
+        points: :itself,
         timestamp: -> (number) { 4 - number },
         gravity: 5
       )
@@ -36,7 +36,7 @@ describe HackerNewsRanking::ArrayMethods do
   describe '#rank!' do
     let(:sorted_array) do
       array.rank!(
-        points: :to_f,
+        points: :itself,
         timestamp: -> (number) { 4 - number },
         gravity: 5
       )
