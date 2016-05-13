@@ -31,7 +31,7 @@ class HackerNewsRanking
 
       def formula
         @formula ||= proc do |element|
-          (points.call(element) - 1) / (timestamp.call(element) + 2)**gravity
+          points.call(element) / timestamp.call(element)**gravity
         end
       end
 
