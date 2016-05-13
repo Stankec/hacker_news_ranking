@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.org/Stankec/hacker_news_ranking.svg?branch=master)](https://travis-ci.org/Stankec/hacker_news_ranking)
+[![Code Climate](https://codeclimate.com/github/Stankec/hacker_news_ranking/badges/gpa.svg)](https://codeclimate.com/github/Stankec/hacker_news_ranking)
+[![Test Coverage](https://codeclimate.com/github/Stankec/hacker_news_ranking/badges/coverage.svg)](https://codeclimate.com/github/Stankec/hacker_news_ranking/coverage)
+[![Issue Count](https://codeclimate.com/github/Stankec/hacker_news_ranking/badges/issue_count.svg)](https://codeclimate.com/github/Stankec/hacker_news_ranking)
+
 # Hacker News Ranking
 
 Add a robust ranking system that deteriorates over time to your application.
