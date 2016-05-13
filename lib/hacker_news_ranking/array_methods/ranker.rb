@@ -14,11 +14,11 @@ class HackerNewsRanking
       end
 
       def rank
-        array.sort_by(&formula)
+        array.sort_by(&formula).reverse!
       end
 
       def rank!
-        array.sort_by!(&formula)
+        array.sort_by!(&formula).reverse!
       end
 
       private

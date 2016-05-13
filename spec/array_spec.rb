@@ -19,7 +19,7 @@ describe HackerNewsRanking::ArrayMethods do
     let(:sorted_array) do
       array.rank(
         points: proc { 100 },
-        timestamp: -> (number) { 4 - number },
+        timestamp: -> (number) { 5 - number },
         gravity: 5
       )
     end
@@ -37,7 +37,7 @@ describe HackerNewsRanking::ArrayMethods do
     let(:sorted_array) do
       array.rank!(
         points: proc { 100 },
-        timestamp: -> (number) { 4 - number },
+        timestamp: -> (number) { 5 - number },
         gravity: 5
       )
     end
