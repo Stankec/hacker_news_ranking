@@ -1,4 +1,4 @@
-class HackerNewsRanking
+class HackerNewsRanking < Module
   MAJOR = 1
   MINOR = 0
   PATCH = 0

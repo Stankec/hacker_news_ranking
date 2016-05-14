@@ -2,7 +2,7 @@ require 'hacker_news_ranking/version'
 require 'hacker_news_ranking/configuration'
 require 'hacker_news_ranking/array_methods'
 
-class HackerNewsRanking
+class HackerNewsRanking < Module
   def self.configure(&block)
     Configuration.new(&block)
     nil
