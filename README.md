@@ -23,7 +23,7 @@ created is expressed in the `time` field (in hours). The `gravity` field
 determines how much the passage of time plays a role. The higher the gravity,
 the more an entries ranking deteriorates over time.
 
-Here is a graph rendering the deterioration of an entries rank over time:
+Here is a graph rendering the deterioration of an entrie's rank over time:
 
 ![Graph rendering of rank change over time](/docs/deteriation_graph.png)
 
