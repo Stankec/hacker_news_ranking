@@ -1,6 +1,7 @@
 require 'hacker_news_ranking/version'
 require 'hacker_news_ranking/configuration'
 require 'hacker_news_ranking/array_methods'
+require 'hacker_news_ranking/module_builder'
 
 class HackerNewsRanking < Module
   def self.configure(&block)
@@ -23,6 +24,16 @@ class HackerNewsRanking < Module
       .call
   end
 
+  attr_reader :options
+
   def initialize(options = {})
+    @options = options
+  end
+
+  def included(klass)
+    klass.send(
+      :include,
+      ModuleBuilder.new(klass, options).call
+    )
   end
 end
