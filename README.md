@@ -136,12 +136,10 @@ modify the passed object.
 
 Please feel free to fork this project and to make pull requests. Support for
 more ORMs, features and bug fixes are always welcome.
-
 Opening issues is also cosidered contributing!
 
 ## License
 
 This project is released under the MIT license. The full text of the license
 can be found in the [ LICENSE ](/LICENSE) file.
-
 Note that this software is provided 'as is', _without_ any warranty of any kind.
