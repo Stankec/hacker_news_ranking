@@ -2,6 +2,7 @@ class HackerNewsRanking
   class ModuleBuilder
     attr_reader :klass
     attr_reader :options
+    attr_reader :adapter
 
     def initialize(klass, options = {})
       @klass = klass
@@ -15,11 +16,11 @@ class HackerNewsRanking
     private
 
     def adapter
-      if sequel?
-        Adapter::Sequel
-      elsif active_record?
-        Adapter::ActiveRecord
-      end
+      @adapter ||= if sequel?
+                     Adapter::Sequel
+                   elsif active_record?
+                     Adapter::ActiveRecord
+                   end
     end
 
     def active_record?
