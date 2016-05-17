@@ -15,11 +15,21 @@ class HackerNewsRanking
     private
 
     def adapter
-      if sequel_defined? && klass.is_a?(Sequel::Model)
+      if sequel?
         Adapter::Sequel
-      elsif active_record_defined? && klass.is_a?(ActiveRecord::Base)
+      elsif active_record?
         Adapter::ActiveRecord
       end
+    end
+
+    def active_record?
+      return false unless active_record_defined?
+      klass.is_a?(ActiveRecord::Base)
+    end
+
+    def sequel?
+      return false unless sequel_defined?
+      klass.is_a?(Sequel::Model)
     end
 
     def sequel_defined?
