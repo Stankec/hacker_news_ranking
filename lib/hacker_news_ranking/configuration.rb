@@ -3,6 +3,8 @@ class HackerNewsRanking
     @@configuration = {
       timestamp: :created_at,
       gravity: 1.8,
+      points_offset: -1,
+      timestamp_offset: 2,
       scope_method: :trending,
       current_rank_method: :rank
     }
@@ -31,6 +33,14 @@ class HackerNewsRanking
 
     def gravity(gravity)
       configuration[:gravity] = gravity
+    end
+
+    def points_offset(points_offset)
+      configuration[:points_offset] = points_offset
+    end
+
+    def timestamp_offset(timestamp_offset)
+      configuration[:timestamp_offset] = timestamp_offset
     end
 
     def scope_method(scope_method)
