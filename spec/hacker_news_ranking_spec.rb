@@ -14,6 +14,8 @@ describe HackerNewsRanking do
           include(
             timestamp: :created_at,
             gravity: 1.8,
+            points_offset: -1,
+            timestamp_offset: 2,
             scope_method: :trending,
             current_rank_method: :rank
           )
@@ -25,6 +27,8 @@ describe HackerNewsRanking do
           points :comments_count
           timestamp :commented_at
           gravity 2.3
+          points_offset 0
+          timestamp_offset 3
           scope_method :controversial
           current_rank_method :points
         end
@@ -34,6 +38,8 @@ describe HackerNewsRanking do
             points: :comments_count,
             timestamp: :commented_at,
             gravity: 2.3,
+            points_offset: 0,
+            timestamp_offset: 3,
             scope_method: :controversial,
             current_rank_method: :points
           )

@@ -14,7 +14,12 @@ posts by 'hottest' or 'trending'.
 The Hacker News 'algorithm' scores each entry using the following formula:
 
 ```Ruby
-rank = (points - 1) / [(time + 2)^gravity]
+rank = (points + points_offset) / [(time + time_offset)^gravity]
+
+# Default values
+# points_offset = -1
+# time_offset = 2
+# gravity = 1.8
 ```
 
 The `points` field defines which value, or a combination of values, will
@@ -68,7 +73,9 @@ default values:
 class Post < ActiveRecord::Base
   include HackerNewsRanking.new(
     points: nil, # this field is required
+    points_offset: -1,
     timestamp: :created_at,
+    timestamp_offset: 2,
     gravity: 1.8,
     scope_method: :trending,
     current_rank_method: :rank
@@ -81,7 +88,9 @@ The default configuration can be changed in the following manner:
 ```Ruby
 HackerNewsRanking.configure do
   points :comments_count
+  points_offset: 0,
   timestamp :commented_at
+  timestamp_offset 5,
   gravity 2.3
   scope_method :controversial
   current_rank_method :points
