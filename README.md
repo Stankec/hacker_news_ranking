@@ -106,9 +106,6 @@ calculate the rank for each entry. If the passed _symbols_ doesn't corespond to
 a column in the model's table a `HackerNewsRanking::MissingColumnError` will be
 raised.
 
-If a _block_ is passed to either the `points` or the `timestamp` attribute all
-__relations will be evaluated as arrays!__
-
 More advanced SQL commands can be achieved by passing a _string_ to either
 attribute.
 
