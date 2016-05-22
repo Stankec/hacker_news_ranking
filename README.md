@@ -15,11 +15,6 @@ The Hacker News 'algorithm' scores each entry using the following formula:
 
 ```Ruby
 rank = (points + points_offset) / [(time + time_offset)^gravity]
-
-# Default values
-# points_offset = -1
-# time_offset = 2
-# gravity = 1.8
 ```
 
 The `points` field defines which value, or a combination of values, will
