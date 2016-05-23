@@ -144,3 +144,5 @@ Opening issues is also cosidered contributing!
 This project is released under the MIT license. The full text of the license
 can be found in the [ LICENSE ](/LICENSE) file.
 Note that this software is provided 'as is', _without_ any warranty of any kind.
+
+#NOOP
